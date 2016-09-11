@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>	
+<head>
+<meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1">
+<title>ACM线上报名系统</title>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="static/css/style.css" rel='stylesheet' type='text/css' />
+<!--webfonts-->
+<link href='http://fonts.useso.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
+<script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<script>$(document).ready(function(c) {
+	$('.close').on('click', function(c){
+		$('.login-form').fadeOut('slow', function(c){
+	  		$('.login-form').remove();
+		});
+	});	  
+});
+</script>
+ <h1>ACM线上报名系统系统</h1>
+ 
+ {{ js|safe }}
+ 
+<div class="login-form">
+	<div class="close"> </div>
+		<div class="head-info">
+			<label class="lbl-1"> </label>
+			<label class="lbl-2"> </label>
+			<label class="lbl-3"> </label>
+		</div>
+			<div class="clear"> </div>
+			<!--<form action="upload_file.php" method="post"
+enctype="multipart/form-data" >-->
+			<form action="/" method="post">
+			{% csrf_token %}
+					<input type="text" name="stuid" class="text" value="学号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '学号';}" maxlength=10>
+						
+					<input type="text" name="stuname" class="text" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}" maxlength=10>
+					<!--<input type="file" name="file" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '文件';}" value="文件">-->
+                    <div class="signin">
+		<input type="submit" value="提交" >
+	</div>
+			</form>
+	</div>
+</div>
+ <div class="copy-rights">
+					<p><a href="http://www.zhihu.com/question/37911788"><u>什么是ACM？</u></a></p>
+					<p><a href="http://airobots.win:8008/"><u>ACM题库</u></a></p>
+					<p>AIRobot</p>
+			</div>
+
+</body>
+</html>
