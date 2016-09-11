@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html><head>
+<title>友宝</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0" name="viewport"> 
+<meta content="yes" name="apple-mobile-web-app-capable"> 
+<meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+<meta content="telephone=no" name="format-detection"> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta charset="utf-8"> 
+<link type="text/css" rel="stylesheet" href="http://img.ubox.cn/v/win/css/product_20160308.css">
+ <style type="text/css">
+       #scrollWrap{width:100%;height:40px;overflow:hidden; position:absolute; top:0;z-index:10;}
+      .tanmu p { height:40px; line-height:40px;font-size:0.63rem; color:#fff; width:100%; overflow:hidden; text-align:left;}
+      .tanmu p img { width:40px; height:40px; display:inline-block; margin-right:5px; border-radius:40px;}
+      .tanmu p .text { display:inline-block; height:40px; line-height:40px;vertical-align: top;}
+    </style>
+<script>$V = {controller:{},model:{}};</script>
+<script>
+var jq = function(fn){  
+        if(document.addEventListener){//兼容非IE  
+            document.addEventListener("DOMContentLoaded",function(){  
+                //注销事件，避免反复触发  
+                document.removeEventListener("DOMContentLoaded",arguments.callee,false);  
+                fn();//调用参数函数  
+            },false);  
+        }else if(document.attachEvent){//兼容IE  
+            document.attachEvent("onreadystatechange",function(){  
+                if(document.readyState==="complete"){  
+                    document.detachEvent("onreadystatechange",arguments.callee);  
+                    fn();  
+                }  
+            });  
+        }  
+       }
+</script></head>
+<body>
+<div id="d_l_mask" style="top: 0;left: 0;opacity:0.5;background-color: #fff;z-index: 98;position: fixed;width: 100%;height: 100%;display: none;"></div>
+<div id="d_l_loading" style="position:fixed;width:35px;height:35px;z-index: 99;background-image:url('http://img.ubox.cn/web/img/weixin/weixin_pay/spinner_signin.png');left: 50%;top: 40%;display: none;"></div>
+<div class="msgWrap" style="display: none;">
+    <div class="layer"></div>
+    <div class="container">
+        <div class="title">
+            
+        </div>
+        <div class="body"></div>
+        <div class="action">
+        <a href="javascript:;" class="Button gray cancelBtn">取消</a>
+        <a href="javascript:;" class="Button orange sureBtn">确定</a>
+        </div>
+    </div>
+</div>
+<div class="layout">
+    <div class="box" style="width:100%; overflow:hidden; position:relative;">
+    <div id="scrollWrap"> 
+    <div id="scrollMsg" class="tanmu">     
+    </div>
+    </div>
+    <!-- 注入js-sdk配置和lib -->
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+      debug: false,
+      appId: 'wx652dba6a719cc690',
+      timestamp: 1459330912,
+      nonceStr: 'jwX6gM3OBP1QOwJ1',
+      signature: '609ad41e144a4aa7d602fb0d5eecb8e3b41649ec',
+      jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'hideMenuItems',    
+        'showMenuItems',
+        'scanQRCode'
+      ]
+  });
+</script>
+<!-- 注入js-sdk配置和lib End -->
+
+<header><img src="http://img.ubox.cn/v/win/img/banner_new.png"/></header>
+<section style="padding-bottom:50px;">
+    <div class="gailv st2"><span>—★</span><span>本次中奖概率:40.00%</span><span>★—</span></div>
+    <div class="jisuan st2">查看公平、公正、公开的计算过程 </div>
+    <div class="goods clearfix">
+       <div class="goods_img"><img src="http://img.ubox.cn/box-tmp/m/276/276.jpg?t=20150527135900"/></div>
+       <div class="goods_info">
+          <p>统一鲜橙多310ml</p>
+          <p>商品价格：<span class="lines">￥2.50</span></p>
+          <p>本次支付：<span class="large">￥1.00</span></p>
+       </div>
+    </div>
+    <div class="btnbox">
+        <a href="javascript:;" class="btn btnbox_w btn_info buyBtn">
+           <p class="zhifu">立即支付</p>
+        </a>
+        <div class="btn_bg_img"><img src="http://img.ubox.cn/v/win/img/hand_new.png"/></div>
+        <div class="btn_bg btnbox_w btn_animation1"></div>
+        <div class="btn_bg btnbox_w btn_animation2"></div>    
+    </div>
+</section>
+<footer>
+   <div class="xieyi clearfix">
+                 <i class="pay_method_ubox on"><span>我已阅读并同意用户条款</span></i>
+              <a class="chakan" href="/win/shuoming">点击查看</a>
+       <a class="xunzhang" href="/win/xunzhang"><img src="http://img.ubox.cn/v/win/img/xunzhang_small.png"/></a>
+       
+       
+   </div>
+</footer>
+
+
+<script>
+    $V.is_android       = 1;
+    $V.key              = '14593309128104';
+    $V.vmcode           = '2021228';//售货机ID
+    $V.vmtype           = '1'; //售货机类型 1售货机 8 便利店
+    $V.pname            = '统一鲜橙多'; //商品名称
+    $V.pid              = '276'; //商品id
+
+</script>
+<script type="text/javascript" src="http://img.ubox.cn/web/js/lib/zepto_min_touch.js"></script>
+<script type="text/javascript" src="http://img.ubox.cn/web/js/v/weixin_pay/util.js?1"></script>
+<script>
+//js-sdk 功能项
+wx.ready(function () {
+    wx.showOptionMenu();
+    
+    //显示菜单项
+    wx.showMenuItems({
+        menuList: [
+            //传播类
+            "menuItem:share:appMessage",
+            "menuItem:share:timeline",
+            //基本类
+            "menuItem:profile",
+            "menuItem:addContact",
+        ],
+        success: function (res) {
+        //alert('已显示...按钮');
+      },
+      fail: function (res) {
+        //alert(JSON.stringify(res));
+      }
+    
+    });
+
+    //隐藏菜单项
+    wx.hideMenuItems({
+        menuList: [
+            //传播类
+            "menuItem:share:QZone",
+            "menuItem:share:qq",
+            "menuItem:share:weiboApp",
+            "menuItem:share:facebook",
+            "menuItem:favorite",
+            //基本类
+            "menuItem:exposeArticle",
+            "menuItem:setFont",
+            "menuItem:dayMode",
+            "menuItem:nightMode",
+            "menuItem:refresh",
+            //保护类
+            "menuItem:jsDebug",
+            "menuItem:editTag",
+            "menuItem:delete",
+            "menuItem:copyUrl",
+            "menuItem:originPage",
+            "menuItem:readMode",
+            "menuItem:openWithQQBrowser",
+            "menuItem:openWithSafari",
+            "menuItem:share:email",
+            "menuItem:share:brand",
+        ],
+        success: function (res) {
+            //alert('已隐藏...按钮');
+        },
+        fail: function (res) {
+            //alert(JSON.stringify(res));
+        }
+    });
+});
+//js-sdk end
+</script>
+<script type="text/javascript" src="http://img.ubox.cn/v/win/js/product_detail_20160310.js"></script>
+
+
+
+
+
+    </div>
+</div>
+
+<script>
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+//  WeixinJSBridge.call('hideOptionMenu');
+    WeixinJSBridge.call('hideToolbar');
+});
+</script>
+<script>
+var timefrom = null;
+setTimeout(function() {
+             Push();
+           },
+        200);
+        setInterval(function() {
+            Push();
+            clearInterval(timefrom);
+    },
+        60000);
+/*请求函数的ajax*/
+    function Push() {
+       $.ajax({
+            type: "GET",
+            url: "/win/ajax_winner_pars/",
+            dataType  : "json",
+            success: function(a) {
+                   var data = a;
+                   var screen_width = window.innerWidth;
+                   var tanmu = document.getElementsByClassName('tanmu')[0];
+                   var length = data.length; //信息条数
+                   var strhtml = '';
+                   function HtmlEncode(str) {
+                        return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                   }
+                   for(var i=0;i<length;i++){
+                       var headimgurl = data[i]['headImgUrl'] == null? 'http://img.ubox.cn/hongbao/img_new/defauleHead.jpg':data[i]['headImgUrl'];
+                       var username = data[i]['nickname'] == null? '神秘用户':data[i]['nickname'].length > 4? data[i]['nickname'].substr(0,3)+'..' : data[i]['nickname'];
+                       var goodname = data[i]['pname'].length > 5? data[i]['pname'].substr(0,4)+'..' : data[i]['pname'];
+                       var timestamp = (Date.parse(new Date()))/1000;
+                       var difftime = timestamp - data[i]['payTime'];
+                       var timetostr = null;
+                       switch(true){
+                          case difftime < 10 : timetostr = '刚刚'; break;
+                          case difftime < 60 : timetostr = difftime + '秒前'; break;
+                          case difftime < 3600: timetostr = Math.floor(difftime/60) + '分钟前'; break;
+                          default: timetostr = Math.floor(difftime/3600) + '小时前';
+                       }
+                        strhtml += '<p><img src='+HtmlEncode(headimgurl)+'><span class="text">'+HtmlEncode(username)+' '+HtmlEncode(timetostr)+'在1元有宝获得 '+HtmlEncode(goodname)+'</span></p>';
+                   }
+                   tanmu.innerHTML = strhtml;
+                     var oScroll = document.getElementById("scrollWrap"); 
+                     var preTop = 0; 
+                     var curTop = 0; 
+                     var stopTime = 0;
+                     var step = 2;
+                     if($V.is_android){
+                         step = 2; //步长须为1或2或4        安卓步长为2  ios步长为4 比较均衡
+                     }else{
+                         step = 4; //步长须为1或2或4        安卓步长为2  ios步长为4 比较均衡
+                     }
+                     var oScrollMsg = document.getElementById("scrollMsg");
+                     oScroll.appendChild(oScrollMsg.cloneNode(true)); 
+                     init_srolltext();
+                     function init_srolltext(){
+                        oScroll.scrollTop = 0; 
+                        timefrom = setInterval(scrollUp,15); 
+                     }
+                     function scrollUp(){ 
+                        curTop += step; 
+                        if(curTop >= 41){ 
+                            stopTime += step; 
+                            curTop -= step; 
+                            if(stopTime >= 180){ 
+                                curTop = 0; 
+                                stopTime = 0; 
+                            } 
+                        }else{ 
+                            preTop = oScroll.scrollTop; 
+                            oScroll.scrollTop += step; 
+                            if(preTop >= oScroll.scrollTop){ 
+                                oScroll.scrollTop = 0; 
+                                oScroll.scrollTop += step; 
+                            } 
+                        } 
+                     }
+            }
+         })
+    };
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
