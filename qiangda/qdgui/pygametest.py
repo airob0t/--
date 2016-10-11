@@ -1,7 +1,7 @@
 # coding:utf-8
 
-import socket
-import qrcode
+import socket,requests
+#import qrcode
 import time
 import pygame
 # 导入pygame库
@@ -52,17 +52,45 @@ fontp = pygame.font.Font('myfont.ttf', 20)
 # fontp.set_bold(True)
 font = pygame.font.Font('myfont.ttf', 30)
 font1 = pygame.font.Font('myfont.ttf', 50)
+title = pygame.font.Font('myfont.ttf',72)
 
 background = pygame.image.load(background_image_filename).convert()
 # mouse_cursor = pygame.image.load(mouse_image_filename).convert_alpha()
 clock = pygame.image.load('clock.jpg').convert_alpha()
-img = qrcode.make("http://" + addr + ":8000/")
-img.save('qr.png')
-qrimage = pygame.image.load('qr.png').convert_alpha()
+#img = qrcode.make("http://" + addr + ":8000/")
+#img.save('qr.png')
+#qrimage = pygame.image.load('qr.png').convert_alpha()
 # 加载并转换图像
 Fullscreen = False
 
-di = 30
+def pause(one_line_text):
+    #要先关闭抢答
+    while starttag:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                exit()
+            if event.type == KEYDOWN:
+                if event.key == K_SPACE:
+                    starttag = not starttag
+                if event.key == K_f:
+                    Fullscreen = not Fullscreen
+                    if Fullscreen:
+                        screen = pygame.display.set_mode((w, h), FULLSCREEN, 32)
+                    else:
+                        screen = pygame.display.set_mode((w, h), 0, 32)
+        screen.blit(background, (0, 0)) #启动画面
+        #tmp = font1.render(u"扫描二维码进入抢答系统", True, (255, 255, 255))
+        tmp = title.render(u"在 线 抢 答 系 统", True, (255, 255, 255))
+        acm = font1.render(u"ACM协会--AIRobot",True, (255, 255, 255))
+        url = font1.render(u"www.airobots.win",True, (255, 255, 255))
+        screen.blit(tmp,(250,150))
+        screen.blit(acm,(300,300))
+        screen.blit(url,(300,400))
+        #screen.blit(qrimage,(300,300))
+        pygame.display.update()
+
+
+di = 90
 i = di
 problemid = 0
 turnid = 0
@@ -71,7 +99,12 @@ y = 150
 now = time.time()
 split = 32
 
+req = requests.session()
 starttag = True
+tagup = "http://127.0.0.1:8000/send/?tag=1"
+tagdown = "http://127.0.0.1:8000/send/?tag=0"
+getname = "http://127.0.0.1:8000/get/"
+req.get(tagdown)
 while starttag:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -87,11 +120,16 @@ while starttag:
                     screen = pygame.display.set_mode((w, h), 0, 32)
     screen.blit(background, (0, 0)) #启动画面
     #tmp = font1.render(u"扫描二维码进入抢答系统", True, (255, 255, 255))
-    tmp = font1.render(u"Author:AIRobot", True, (255, 255, 255))
-    screen.blit(tmp,(300,200))
+    tmp = title.render(u"在 线 抢 答 系 统", True, (255, 255, 255))
+    acm = font1.render(u"ACM协会--AIRobot",True, (255, 255, 255))
+    url = font1.render(u"www.airobots.win",True, (255, 255, 255))
+    screen.blit(tmp,(250,150))
+    screen.blit(acm,(300,300))
+    screen.blit(url,(300,400))
     #screen.blit(qrimage,(300,300))
     pygame.display.update()
 
+req.get(tagup)
 while True:
     tag = 0
     qiangda = 0
@@ -128,18 +166,13 @@ while True:
         text_problem = fontp.render(line.decode('utf-8'), True, (255, 255, 255))
         screen.blit(text_problem, (50, y))
         y += 30
-    while True:
-        try:
-            f = open('tag.txt', 'r')
-        except:
-            continue
-        break 
-    if int(f.read()) == -1:
+    res = req.get(getname)
+    #print res.status_code
+    if res.content != '#':
         qiangda = 1
         tag = 1
         i = di
         web.play(0)
-    f.close()
     if tag == 0:
         screen.blit(clock, (w - 200, 25))
         if i > 9:
@@ -160,22 +193,7 @@ while True:
             if qiangda == 0:
                 screen.blit(text_answer, (200, 600))
             elif qiangda == 1:
-                while True:
-                    try:
-                        f = open('no.txt', 'r')
-                    except:
-                        continue
-                    break
-                no = f.read()
-                f.close()
-                while True:
-                    try:
-                        f = open('tag.txt', 'w')
-                    except:
-                        continue
-                    break
-                f.write('-1')
-                f.close()
+                no = req.get(getname).content
                 declare = font1.render((no + '抢答成功！').decode('utf-8'), True, (255, 255, 255))
                 screen.blit(declare, (100, 50))
                 if goon == 1:
@@ -193,23 +211,9 @@ while True:
                             elif goon == 1:
                                 label = 1
                                 problemid += 1
-                                while True:
-                                    try:
-                                        f = open('tag.txt', 'w')
-                                    except:
-                                        continue
-                                    break
-                                f.write('1')
-                                f.close()
+                                req.get(tagup)
                         else:
-                            while True:
-                                try:
-                                    f = open('tag.txt', 'w')
-                                except:
-                                    continue
-                                break
-                            f.write('0')
-                            f.close()
+                            req.get(tagdown)
                             screen.blit(text_answer, (200, 600))
                             pygame.display.update()
                             while True:
