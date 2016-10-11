@@ -19,6 +19,8 @@ from client import views as client_views
 
 urlpatterns = [
     url(r'^$', client_views.index),
-    url(r'^send', client_views.send),
+    url(r'^send/', client_views.send),
+    url(r'^get/', client_views.get),
     url(r'^admin/', admin.site.urls),
+
 ]
