@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content_body %}
+
+	{% for per in person %}
+        <p><h2>{{ per.name }}</h2>已有{{ per.ticket }}票,<a href="vote/?name={{ per.name }}">投他一票</a></p><br>
+		{% empty %}
+        <p>NONE</p>
+	{% endfor %}
+
+{% endblock %}
