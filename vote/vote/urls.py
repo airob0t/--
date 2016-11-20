@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^vote/', views.vote, name='vote'),
+    url(r'^airobot/',views.admin, name='admin'),
 ]
+

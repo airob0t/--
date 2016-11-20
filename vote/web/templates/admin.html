@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content_body %}
+
+	{% for per in person %}
+        <p><h2>{{ per.name }}</h2>已有{{ per.ticket }}票,已<b>[{% if per.isOpen %}开启{% else %}关闭{% endif %}]</b>投票,<a href="vote/?name={{ per.name }}&open={% if per.isOpen %}0{% else %}1{% endif %}">{% if per.isOpen %}关闭{% else %}开启{% endif %}投票</a></p><br>
+		{% empty %}
+        <p>NONE</p>
+	{% endfor %}
+
+{% endblock %}

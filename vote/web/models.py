@@ -12,3 +12,9 @@ class Person(models.Model):
 
     def __unicode__(self):
         return '%s %d' %(self.name,self.ticket)
+
+class IP(models.Model):
+    ip = models.GenericIPAddressField()
+    
+    def __unicode__(self):
+        return '%s' %(self.ip)
