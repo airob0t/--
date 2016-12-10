@@ -53,6 +53,8 @@ def upload(request):
                 subprocess.call([os.path.join(exepath, exename), inpath, outpath + '.fnn', '-m', '-n'], cwd=exepath)
             if protein != '':
                 subprocess.call([os.path.join(exepath, exename), inpath, outpath + '.faa', '-m', '-p'], cwd=exepath)
+            #if essential != '':    #take a long time
+            #    subprocess.Popen([os.path.join(exepath, exename), inpath, outpath + '.ess', '-m', '-e'], cwd=exepath)
         else:
             if predict != '':
                 subprocess.call([os.path.join(exepath, exename), inpath, outpath], cwd=exepath)
@@ -60,10 +62,8 @@ def upload(request):
                 subprocess.call([os.path.join(exepath, exename), inpath, outpath + '.fnn', '-n'], cwd=exepath)
             if protein != '':
                 subprocess.call([os.path.join(exepath, exename), inpath, outpath + '.faa', '-p'], cwd=exepath)
-
-        # if essential != '':    #take a long time
-        #    subprocess.Popen([os.path.join(exepath, exename), inpath, outpath+'.ess', '-e'], cwd=exepath)
-        # subprocess.call([os.path.join(exepath, exename), inpath, outpath,mtag,genes,protein,essential], cwd=exepath)
+            # if essential != '':    #take a long time
+            #    subprocess.Popen([os.path.join(exepath, exename), inpath, outpath + '.ess', '-e'], cwd=exepath)
 
         html = '''
         <html>
