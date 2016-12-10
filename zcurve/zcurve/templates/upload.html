@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+
+<table width="750" align="center">
+<tbody>
+<tr><td bgcolor="#A0B8C8"><font color="white"><b> &nbsp; &nbsp; Gene Prediction Results </b></font></td></tr>
+<tr><td><p align="center"><a href="/">Click here to submit another sequences.</a></p>
+<table border="1" align="center">
+<tbody><tr><th> output </th><th> link </th></tr>
+{% for i in output %}
+{{ i }}
+<tr><td> Coordinates of predicted genes </td><td> <a href="/result/?uid="><b> gms.out </b></a> </td></tr>
+<tr><td> Gene sequences </td><td> <a href="/result/?uid=&ext=fnn"><b> gms.out.fnn </b></a> </td></tr>
+<tr><td> Protein sequence </td><td> <a href="/result/?uid=&ext=faa"><b> gms.out.faa </b></a> </td></tr>
+<tr><td>Essential Genes</td><td><a href="/result/?uid=&ext=ess"><b> gms.out.ess </b></a> </td></tr>
+{% endfor %}
+<tr></tr>
+</tbody>
+</table>
+</td></tr>
+</tbody>
+</table>
+
+</body>
+</html>

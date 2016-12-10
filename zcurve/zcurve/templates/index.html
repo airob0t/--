@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style type="text/css">
+  body { font-family: Verdana,Arial,Helvetica; background-color: white }
+  a { text-decoration:none }
+</style>
+
+<title> ZCURVE </title>
+</head>
+
+<body>
+
+<table width="760" align="center">
+
+<tbody><tr><td bgcolor="#eeeeee" align="center"><font size="+2"><b>  ZCURVE  </b></font></td></tr>
+
+<tr><td align="center">
+	<a target="_blank" href="http://cefg.uestc.edu.cn/zcurve/introduction.php" style="text-decoration:none"> Introduction </a> &nbsp;|&nbsp; 
+        <a target="_blank" href="http://cefg.uestc.edu.cn/zcurve/help.php" style="text-decoration:none"> Help </a> &nbsp;|&nbsp; 
+       <a target="_blank" href="http://cefg.uestc.edu.cn/zcurve/download.php" style="text-decoration:none"> Download </a> &nbsp;|&nbsp; 
+        <a target="_blank" href="http://cefg.uestc.edu.cn/zcurve/contact.php" style="text-decoration:none"> Contact Us </a> &nbsp;|&nbsp;
+        <a target="_blank" href="/exampledata/" style="text-decoration:none">Example Data</a>
+</td></tr>
+
+<tr><td>
+	<br>
+        ZCURVE is an ab initio program for gene finding in bacterial or archaeal genomes and its latest version is 3.0. Based on cross validations of 422 prokaryotic genomes, 
+         ZCURVE 3.0 has slightly higher accuracy than Glimmer 3.02. This page provides access to ZCURVE 3.0.
+</td></tr>
+
+</tbody></table>
+
+<form action="/upload/" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+<table width="760" align="center">
+
+<tbody><tr><td bgcolor="#A0B8C8">
+	<font color="white"><b>&nbsp;&nbsp; Input sequence </b></font>
+</td></tr>
+
+<script language="JavaScript">
+ function clear() {
+document.getElementById("txt1").value ="";
+document.getElementById("txt2").value ="";
+}
+</script>
+
+<tr><td><table width="70%" align="center">
+	<tbody><tr><td colspan="2">
+  		<b> Enter sequence (FASTA or multi FASTA format) </b>
+  	</td></tr>
+	<tr><td colspan="2">
+		<textarea id="txt1" name="sequence" cols="80" rows="15"></textarea>
+	</td></tr>
+	<tr>
+		<td>
+	  		<b> Or, upload file: </b>
+		</td>
+		<td>
+			<input id="txt2" type="file" name="file"><input type="button" value="Clear" onclick="clear()">
+		</td>
+	</tr>
+</tbody></table></td></tr>
+
+<tr><td bgcolor="#A0B8C8"><font color="white"><b>&nbsp;&nbsp; Advanced options </b></font></td></tr>
+	<tr><td>
+		<input type="radio" name="format" value="LST" checked=""> (default)Select stop codon type to it: TAA,TAG,TGA <br>
+		<input type="radio" name="format" value="GFF"> For mycoplasma genomes, consider the triplet TGA encodes Tryptophan <br>
+	</td>
+
+</tr></tbody></table><table width="760" align="center">
+<tbody><tr><td bgcolor="#A0B8C8"><font color="white"><b>&nbsp;&nbsp; Output options </b></font></td></tr>
+<tr><td> 
+	<input type="checkbox" name="predict" value="predict" checked=""> (default) Coordinates of predicted genes <br>
+</td></tr>
+<tr><td> 
+	<input type="checkbox" name="genes" value="Genes"> Gene nucleotide sequence <br>
+</td></tr>
+<tr><td> 
+	<input type="checkbox" name="protein" value="Protein"> Protein sequence <br>
+</td></tr>
+<tr><td> 
+	<input type="checkbox" name="essential" value="Essential"> Essential genes  <br>
+</td></tr>
+</tbody></table>
+
+
+
+<table width="760" align="center">
+<tbody><tr><td bgcolor="#A0B8C8">
+	<font color="white"><b>&nbsp;&nbsp; Action</b></font>
+	<input type="submit" name="submit" value="Run ZCURVE" id="submit">
+	
+</td></tr>
+</tbody></table>
+
+</form>
+
+
+</body></html>
