@@ -14,19 +14,21 @@ url = "http://v.ubox.cn/win/ajax_winner_pars/"
 
 success = 0
 fail = 0
-f = open('data.csv','w')
+filename = str(time.localtime().tm_mon)+'_'+str(time.localtime().tm_mday)+'.csv'
+f = open(filename,'w')
 res = requests.get(url)
-last = json.loads(res.content)
+last = json.loads(res.content.decode('utf-8'))
 for k in range(0,100000):
     res = requests.get(url)
-    js = json.loads(res.content)
+    js = json.loads(res.content.decode('utf-8'))
     if last == js:
         time.sleep(1)
         continue
     for i in js:
         t = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(i['payTime']))
-        a = ",%s,%s,%s,%s\n"%(i['payTime'],i['transactionId'][-10:],i['price'],int(i['transactionId'])%int(i['price']))
-        print t,a
+        a = ",%s,%s,%s,%s,%s,%s\n"%(i['payTime'],i['transactionId'],i['treadNo'],i['transactionId'][-10:],i['price'],int(i['transactionId'])%int(i['price']))
+        #print t,a
+        print(a)
         f.write(t+a)
     last = js
     time.sleep(1)
