@@ -6,8 +6,8 @@ import requests
 
 url = "http://www.cnmooc.org/home/login.mooc"
 loginurl = "http://www.cnmooc.org/home/doLogin.mooc"
-username = "kangxizhen@qq.com".replace('@',"%40")    #用户名
-pwd = "123qwe" #密码
+username = "".replace('@',"%40")    #用户名
+pwd = "" #密码
 
 def encrypt(plaintext_text):
     plaintext = int(plaintext_text.encode('hex'), 16)
