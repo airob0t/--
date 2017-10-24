@@ -1,20 +1,16 @@
 #coding:utf-8
 
-from socket import *
+import socket
 
-s = socket()
-#host = gethostname()
-host = '0.0.0.0'
-port = 137
-s.bind((host,port))
-
-s.listen(5)
-while True:
-    c, addr = s.accept()
-    print u'连接地址:',addr
-    command = c.recv(1024)
-    print command
-    if command == 'close':
-        c.close()
-        break
-s.close()
+s = socket.socket()
+#host = socket.gethostname()
+host = '' #ip
+port = 2324  #port
+try:
+    s.connect((host, port))
+    s.send(raw_input())
+    s.close()
+    print 'sended'
+except:
+    print 'connect failed,check ip or port'
+raw_input()
